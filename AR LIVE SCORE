@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Cricket Score</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align: center; background:#f2f2f2; }
+    .card { background:#fff; margin:20px; padding:20px; border-radius:10px; }
+    .score { font-size: 40px; color: green; }
+    button { padding:10px 20px; font-size:16px; }
+  </style>
+</head>
+<body>
+
+  <h1>My Live Cricket Score</h1>
+
+  <div class="card">
+    <h2>Team A vs Team B</h2>
+    <div class="score" id="score">0/0 (0.0)</div>
+    <button onclick="run()">Run +1</button>
+    <button onclick="wicket()">Wicket</button>
+    <button onclick="over()">Over</button>
+  </div>
+
+<script>
+  let runCount = 0;
+  let wicketCount = 0;
+  let overs = 0.0;
+
+  function run(){
+    runCount++;
+    update();
+  }
+  function wicket(){
+    wicketCount++;
+    update();
+  }
+  function over(){
+    overs = (overs + 0.1).toFixed(1);
+    update();
+  }
+  function update(){
+    document.getElementById("score").innerText =
+      runCount + "/" + wicketCount + " (" + overs + ")";
+  }
+</script>
+
+</body>
+</html>
